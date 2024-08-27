@@ -11,15 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
+       // database/migrations/xxxx_xx_xx_create_users_table.php
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('first_name');
+            $table->string('middle_name')->nullable();
+            $table->string('last_name');
+            $table->string('extension_name')->nullable();
+            $table->string('sex');
+            $table->date('birthdate');
+            $table->string('street');
+            $table->string('region');
+            $table->string('province');
+            $table->string('city');
+            $table->string('barangay');
+            $table->string('username')->unique();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
+
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
